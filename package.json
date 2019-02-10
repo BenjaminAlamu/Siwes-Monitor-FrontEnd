@@ -11,8 +11,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "tailwindcss": "^0.7.4",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuetify": "^1.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -28,12 +30,12 @@
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
-    "eslint": "^4.15.0",
-    "eslint-config-airbnb-base": "^11.3.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^11.3.2",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-import-resolver-webpack": "^0.8.3",
     "eslint-loader": "^1.7.1",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-vue": "^4.0.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.4",
@@ -67,5 +69,16 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenjaminAlamu/Siwes-Monitor-FrontEnd.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BenjaminAlamu/Siwes-Monitor-FrontEnd/issues"
+  },
+  "homepage": "https://github.com/BenjaminAlamu/Siwes-Monitor-FrontEnd#readme"
 }
