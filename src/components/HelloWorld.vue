@@ -7,7 +7,7 @@
                		<div class="text-center sm:text-left sm:flex-grow">
                     	<div class="mb-4">
                         	<p class="text-xl leading-tight">Jane Doe</p>
-                           	<p class="text-sm leading-tight text-grey-dark">Software Developer at SpongeBob LLC.</p>
+                           	<p class="text-sm leading-tight text-grey-dark">Software Developer at 390 Labs LLC.</p>
                        	</div>
                         <div class="flex flex-wrap">
                         	<button class=" text-xs font-semibold rounded-full px-4 py-1 mx-3  leading-normal bg-white border border-blue text-blue hover:bg-blue hover:text-white">Call</button>
