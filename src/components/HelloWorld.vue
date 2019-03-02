@@ -1,59 +1,147 @@
 <template>
-  <div class="hello">
-    <div class="container mx-auto py-10">
-      <div
-        class="border m-6 rounded-lg bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden"
+  <v-container>
+    <v-layout
+      text-xs-center
+      wrap
+    >
+      <v-flex xs12>
+        <v-img
+          :src="require('../assets/logo.svg')"
+          class="my-3"
+          contain
+          height="200"
+        ></v-img>
+      </v-flex>
+
+      <v-flex mb-4>
+        <h1 class="display-2 font-weight-bold mb-3">
+          Welcome to Vuetify
+        </h1>
+        <p class="subheading font-weight-regular">
+          For help and collaboration with other Vuetify developers,
+          <br>please join our online
+          <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
+        </p>
+      </v-flex>
+
+      <v-flex
+        mb-5
+        xs12
       >
-        <div class="sm:flex sm:items-center px-6 py-4">
-          <img
-            class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0"
-            src="https://api.adorable.io/avatars/196/abott@adorable.png"
-            alt
+        <h2 class="headline font-weight-bold mb-3">What's next?</h2>
+
+        <v-layout justify-center>
+          <a
+            v-for="(next, i) in whatsNext"
+            :key="i"
+            :href="next.href"
+            class="subheading mx-3"
+            target="_blank"
           >
-          <div class="text-center sm:text-left sm:flex-grow">
-            <div class="mb-4">
-              <p class="text-xl leading-tight">Jane Doe</p>
-              <p class="text-sm leading-tight text-grey-dark">Software Developer at 390 Labs LLC.</p>
-            </div>
-            <div class="flex flex-wrap">
-              <button
-                class="text-xs font-semibold rounded-full px-4 py-1 mx-3 leading-normal bg-white border border-blue text-blue hover:bg-blue hover:text-white"
-              >Call</button>
-              <button
-                class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-purple text-purple hover:bg-purple hover:text-white"
-              >Message</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+            {{ next.text }}
+          </a>
+        </v-layout>
+      </v-flex>
+
+      <v-flex
+        xs12
+        mb-5
+      >
+        <h2 class="headline font-weight-bold mb-3">Important Links</h2>
+
+        <v-layout justify-center>
+          <a
+            v-for="(link, i) in importantLinks"
+            :key="i"
+            :href="link.href"
+            class="subheading mx-3"
+            target="_blank"
+          >
+            {{ link.text }}
+          </a>
+        </v-layout>
+      </v-flex>
+
+      <v-flex
+        xs12
+        mb-5
+      >
+        <h2 class="headline font-weight-bold mb-3">Ecosystem</h2>
+
+        <v-layout justify-center>
+          <a
+            v-for="(eco, i) in ecosystem"
+            :key="i"
+            :href="eco.href"
+            class="subheading mx-3"
+            target="_blank"
+          >
+            {{ eco.text }}
+          </a>
+        </v-layout>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
-import '@/assets/css/tailwind.css';
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  export default {
+    data: () => ({
+      ecosystem: [
+        {
+          text: 'vuetify-loader',
+          href: 'https://github.com/vuetifyjs/vuetify-loader'
+        },
+        {
+          text: 'github',
+          href: 'https://github.com/vuetifyjs/vuetify'
+        },
+        {
+          text: 'awesome-vuetify',
+          href: 'https://github.com/vuetifyjs/awesome-vuetify'
+        }
+      ],
+      importantLinks: [
+        {
+          text: 'Documentation',
+          href: 'https://vuetifyjs.com'
+        },
+        {
+          text: 'Chat',
+          href: 'https://community.vuetifyjs.com'
+        },
+        {
+          text: 'Made with Vuetify',
+          href: 'https://madewithvuetifyjs.com'
+        },
+        {
+          text: 'Twitter',
+          href: 'https://twitter.com/vuetifyjs'
+        },
+        {
+          text: 'Articles',
+          href: 'https://medium.com/vuetify'
+        }
+      ],
+      whatsNext: [
+        {
+          text: 'Explore components',
+          href: 'https://vuetifyjs.com/components/api-explorer'
+        },
+        {
+          text: 'Select a layout',
+          href: 'https://vuetifyjs.com/layout/pre-defined'
+        },
+        {
+          text: 'Frequently Asked Questions',
+          href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions'
+        }
+
+      ]
+    })
   }
-};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style>
+
 </style>
