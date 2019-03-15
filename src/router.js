@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Login from './views/shared/login.vue';
+import School from './views/school/school.vue'
 
 Vue.use(Router);
 
@@ -11,16 +12,17 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: Login,
     },
     {
       path: '/login',
       name: 'Login',
       component: Login,
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      // npm init -y
+    },
+    {
+      path: '/school',
+      name: 'School',
+      component: School,
     },
   ],
 });
