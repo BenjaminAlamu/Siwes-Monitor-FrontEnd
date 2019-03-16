@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="body">
     <router-view></router-view>
   </v-app>
 </template>
@@ -19,3 +19,10 @@ export default {
   }
 };
 </script>
+
+<style>
+.body {
+  font-family: 'Nunito';
+}
+</style>
+
