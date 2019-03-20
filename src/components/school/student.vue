@@ -7,29 +7,6 @@
           <p class="action" @click="getData(person)">Assign Supervisor</p>
           <!-- <p class="action">Edit</p>
           <p class="action">Delete</p>-->
-          <!-- Assign Modal -->
-          <div class="text-xs-center">
-            <v-dialog v-model="dialog" width="500">
-              <v-card>
-                <v-card-title class="headline grey lighten-2" primary-title>Assign Supervisor</v-card-title>
-
-                <v-card-text>
-                  <p>Select a suitable Lecturer</p>
-                  <v-flex xs12 sm6 d-flex>
-                    <v-select :items="items" v-model="select" label="Standard"></v-select>
-                  </v-flex>
-                </v-card-text>
-
-                <v-divider></v-divider>
-
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="#324150" outline flat @click="dialog = false">Cancel</v-btn>
-                  <v-btn class="#324150" flat @click="dialog = false">Assign</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </div>
         </div>
       </div>
     </div>

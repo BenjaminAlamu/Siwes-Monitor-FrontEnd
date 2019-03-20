@@ -4,13 +4,14 @@
       <div v-for="(person,index) in student" :key="index" class="student">
         <p>{{person.name}}</p>
         <div class="actions">
-          <!-- <p class="action">Reports</p> -->
           <p class="action" @click="getData(person)">View</p>
-          <!-- <p class="action">Edit</p>
-          <p class="action">Delete</p>-->
+          <p class="action red--text" @click="terminate(person)">Terminate</p>
         </div>
       </div>
     </div>
+    <v-btn fab dark color="indigo" right class="add-btn">
+      <v-icon dark>add</v-icon>
+    </v-btn>
 
     <!-- View Modal -->
     <div class="text-xs-center">
@@ -30,6 +31,27 @@
             <v-spacer></v-spacer>
             <v-btn color="#324150" outline flat @click="dialog = false">Close</v-btn>
             <v-btn class="#324150" flat @click="dialog = false">View Reports</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="text-xs-center">
+      <v-dialog v-model="dialog2" width="500">
+        <v-card>
+          <v-card-title class="headline grey lighten-2" primary-title>Terminate Internship</v-card-title>
+
+          <v-card-text>
+            <p>Are you sure you want to terminate Name's Intership</p>
+          </v-card-text>
+
+          <v-divider></v-divider>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="red red--text" outline flat @click="dialog2 = false">Cancel</v-btn>
+            <v-btn class="red white--text" flat @click="dialog = false">Terminate</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -63,6 +85,7 @@ export default {
       ],
       modalData: {},
       dialog: false,
+      dialog2: false,
       items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
       select: ''
     };
@@ -71,6 +94,10 @@ export default {
     getData(data) {
       this.modalData = data;
       this.dialog = true;
+    },
+    terminate(data) {
+      this.modalData = data;
+      this.dialog2 = true;
     }
   }
 };

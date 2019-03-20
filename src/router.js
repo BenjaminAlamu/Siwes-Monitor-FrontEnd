@@ -12,7 +12,11 @@ import Staff_Student from './components/staff/student'
 import StudentReport from './components/staff/reports'
 import SingleStudentReport from './components/staff/student-report'
 import Password from './components/shared/password'
-
+import Company from './views/company/company.vue'
+import StudentApplications from './components/company/applications.vue'
+import CompanyStudents from './components/company/student.vue'
+import CompanyStudentReport from './components/company/reports'
+import CompanySingleStudentReport from './components/company/student-report'
 
 Vue.use(Router);
 
@@ -75,10 +79,43 @@ export default new Router({
         name: "single-student-report"
       },
       {
-        path: '/staff/change-password',
+        path: '/change-password',
         component: Password,
-        name: "staff-change-password"
+        name: "change-password"
       }
+      ]
+    },
+    {
+      path: '/company',
+      name: 'company-container',
+      component: Company,
+      children: [{
+        path: '/company/applications',
+        component: StudentApplications,
+        name: "student-applications"
+      },
+      {
+        path: '/company/students',
+        component: CompanyStudents,
+        name: "company-students"
+      },
+      {
+        path: '/change-password',
+        component: Password,
+        name: "change-password"
+      },
+      {
+        path: '/company/students/reports',
+        component: CompanyStudentReport,
+        name: "student-report"
+      },
+      {
+        path: '/company/student/reports',
+        component: CompanySingleStudentReport,
+        name: "single-student-report"
+      },
+
+
       ]
     }
   ],
