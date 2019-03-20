@@ -17,6 +17,11 @@ import StudentApplications from './components/company/applications.vue'
 import CompanyStudents from './components/company/student.vue'
 import CompanyStudentReport from './components/company/reports'
 import CompanySingleStudentReport from './components/company/student-report'
+import StudentHome from "./views/student/student"
+import MyApplications from './components/student/applications'
+import MyReports from './components/student/reports'
+import Terminate from './components/student/terminate'
+import NewReport from './components/student/create-report'
 
 Vue.use(Router);
 
@@ -114,8 +119,37 @@ export default new Router({
         component: CompanySingleStudentReport,
         name: "single-student-report"
       },
-
-
+      ]
+    },
+    {
+      path: '/student',
+      name: 'student-home',
+      component: StudentHome,
+      children: [{
+        path: '/student/applications',
+        component: MyApplications,
+        name: "my-applications"
+      },
+      {
+        path: '/student/reports',
+        component: MyReports,
+        name: "company-students"
+      },
+      {
+        path: '/change-password',
+        component: Password,
+        name: "change-password"
+      },
+      {
+        path: '/student/terminate',
+        component: Terminate,
+        name: "student-terminate"
+      },
+      {
+        path: '/student/report/add',
+        component: NewReport,
+        name: "student-new-report"
+      },
       ]
     }
   ],
