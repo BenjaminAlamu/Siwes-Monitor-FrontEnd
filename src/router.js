@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Login from './views/shared/login.vue';
+import Register from './views/shared/register.vue';
 import School from './views/school/school.vue'
 import Staff from './components/school/staff.vue'
 import AddStaff from './components/school/addStaff.vue'
@@ -37,6 +38,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login,
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register,
     },
     {
       path: '/school',
