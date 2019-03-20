@@ -62,6 +62,11 @@ export default new Router({
         component: AddStudent,
         name: "add-student"
       },
+      {
+        path: '/school/change-password',
+        component: Password,
+        name: "change-password"
+      }
       ]
     },
     {
@@ -84,7 +89,7 @@ export default new Router({
         name: "single-student-report"
       },
       {
-        path: '/change-password',
+        path: '/staff/change-password',
         component: Password,
         name: "change-password"
       }
@@ -105,7 +110,7 @@ export default new Router({
         name: "company-students"
       },
       {
-        path: '/change-password',
+        path: '/company/change-password',
         component: Password,
         name: "change-password"
       },
@@ -136,7 +141,7 @@ export default new Router({
         name: "company-students"
       },
       {
-        path: '/change-password',
+        path: 'student/change-password',
         component: Password,
         name: "change-password"
       },
