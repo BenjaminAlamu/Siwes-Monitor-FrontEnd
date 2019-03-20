@@ -4,58 +4,31 @@
       <div v-for="(person,index) in student" :key="index" class="student">
         <p>{{person.name}}</p>
         <div class="actions">
-          <p class="action" @click="getData(person)">Assign Supervisor</p>
+          <!-- <p class="action">Reports</p> -->
+          <p class="action" @click="getData(person)">View</p>
           <!-- <p class="action">Edit</p>
           <p class="action">Delete</p>-->
-          <!-- Assign Modal -->
-          <div class="text-xs-center">
-            <v-dialog v-model="dialog" width="500">
-              <v-card>
-                <v-card-title class="headline grey lighten-2" primary-title>Assign Supervisor</v-card-title>
-
-                <v-card-text>
-                  <p>Select a suitable Lecturer</p>
-                  <v-flex xs12 sm6 d-flex>
-                    <v-select :items="items" v-model="select" label="Standard"></v-select>
-                  </v-flex>
-                </v-card-text>
-
-                <v-divider></v-divider>
-
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="#324150" outline flat @click="dialog = false">Cancel</v-btn>
-                  <v-btn class="#324150" flat @click="dialog = false">Assign</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </div>
         </div>
       </div>
     </div>
-    <v-btn fab dark color="indigo" right class="add-btn">
-      <v-icon dark>add</v-icon>
-    </v-btn>
-
     <!-- Assign Modal -->
     <div class="text-xs-center">
       <v-dialog v-model="dialog" width="500">
         <v-card>
-          <v-card-title class="headline grey lighten-2" primary-title>Assign Supervisor</v-card-title>
+          <v-card-title class="headline grey lighten-2" primary-title>Student Details</v-card-title>
 
           <v-card-text>
-            <p>Select a suitable Lecturer</p>
-            <v-flex xs12 sm6 d-flex>
-              <v-select :items="items" v-model="select" label="Standard"></v-select>
-            </v-flex>
+            <p>Name:</p>
+            <p>Email:</p>
+            <p>Phone Number:</p>
           </v-card-text>
 
           <v-divider></v-divider>
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="#324150" outline flat @click="dialog = false">Cancel</v-btn>
-            <v-btn class="#324150" flat @click="dialog = false">Assign</v-btn>
+            <v-btn color="#324150" outline flat @click="dialog = false">Close</v-btn>
+            <v-btn class="#324150" flat @click="dialog = false">View Reports</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>

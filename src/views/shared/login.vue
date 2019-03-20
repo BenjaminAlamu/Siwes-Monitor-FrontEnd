@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-4 left-div">
         <div class="left-content">
-          <p>fyfhfybdyf</p>
+          
         </div>
       </div>
 
