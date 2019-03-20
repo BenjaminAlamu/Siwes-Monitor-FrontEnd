@@ -4,7 +4,7 @@
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>
         <v-flex xs12 class="search-box" v-if="!$vuetify.breakpoint.xsOnly">
-          <v-text-field label="Search"></v-text-field>
+          <v-btn flat>Siwes Monitor</v-btn>
         </v-flex>
       </v-toolbar-title>
       <v-spacer></v-spacer>
