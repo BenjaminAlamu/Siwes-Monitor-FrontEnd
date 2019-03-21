@@ -9,9 +9,9 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat>Welcome Name</v-btn>
+        <!-- <v-btn flat>Welcome Name</v-btn>
         <v-btn flat>Change Password</v-btn>
-        <v-btn flat>Log Out</v-btn>
+        <v-btn flat>Log Out</v-btn>-->
       </v-toolbar-items>
     </v-toolbar>
 
@@ -21,28 +21,24 @@
       </div>
 
       <div id="side">
-        <router-link style="color-white" class="white--text" tag="v-list-tile" to="/admin">
-          <a>Dashboard</a>
-        </router-link>
-
-        <router-link tag="v-list-tile" to="all-entries">
+        <router-link tag="v-list-tile" to="/student/applications">
           <a>Applications</a>
         </router-link>
 
-        <router-link tag="v-list-tile" to="reviewed">
+        <router-link tag="v-list-tile" to="/student/reports">
           <a>Reports</a>
         </router-link>
 
-        <router-link tag="v-list-tile" to="reviewed">
+        <router-link tag="v-list-tile" to="/student/terminate">
           <a>End Internship</a>
         </router-link>
 
-        <router-link tag="v-list-tile" to="reviewed">
+        <router-link tag="v-list-tile" to="student/change-password">
           <a>Change Password</a>
         </router-link>
 
-        <router-link tag="v-list-tile" to="reviewed">
-          <a>Logout</a>
+        <router-link tag="v-list-tile" to="/login">
+          <a>Log Out</a>
         </router-link>
       </div>
     </v-navigation-drawer>
@@ -62,7 +58,15 @@ export default {
     left: false,
     dialog: false,
     drawer: true
-  })
+  }),
+  methods: {
+    logout() {
+      localStorage.removeItem('siwesUser');
+      this.$router.push({
+        name: '/login'
+      });
+    }
+  }
 };
 </script>
 

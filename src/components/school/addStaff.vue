@@ -57,19 +57,72 @@
             </div>
           </div>
         </div>
-
-        <v-btn color="#324150" class="submit-btn white--text" to="/apply">Submit</v-btn>
+        <v-alert :value="errors.error" type="error">{{errors.error_msg}}</v-alert>
+        <v-alert :value="success" dismissible type="success">Staff Added Successfully</v-alert>
+        <v-progress-circular v-if="loading" class="loading" indeterminate color="red"></v-progress-circular>
+        <v-btn color="#324150" class="submit-btn white--text" @click="add() ">Submit</v-btn>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
-      staff: {}
+      staff: {},
+      school: {},
+      loading: false,
+      errors: {},
+      success: false
     };
+  },
+  mounted() {
+    const data = JSON.parse(localStorage.getItem('siwesUser'));
+    this.school = data;
+    console.log(this.school);
+  },
+  methods: {
+    add() {
+      const self = this;
+      this.loading = true;
+      this.errors = {};
+      this.success = false;
+      console.log(this.staff);
+      this.staff.school = this.school.data.id;
+      this.staff.schoolName = this.school.data.schoolName;
+      let user = {
+        email: this.staff.email,
+        password: 'password',
+        type: 'staff'
+      };
+
+      let data = {
+        staff: this.staff,
+        user
+      };
+
+      console.log(data);
+      axios
+        .post('https://siwes-backend.herokuapp.com/staff/register', data)
+        .then(function(response) {
+          self.loading = false;
+          if (response.data.status == '200') {
+            console.log(response.data);
+            self.success = true;
+          } else {
+            self.errors.error = true;
+            self.errors.error_msg = response.data.message.message;
+          }
+        })
+        .catch(function(error) {
+          self.loading = false;
+          self.errors.error = true;
+          self.errors.error_msg = 'An error occured,pls contact the admin';
+          console.log(error);
+        });
+    }
   }
 };
 </script>

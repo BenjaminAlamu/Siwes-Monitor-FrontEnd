@@ -1,6 +1,7 @@
 <template>
   <div class="list">
     <div class="content">
+      <h3 class="form-title">Students</h3>
       <div v-for="(person,index) in student" :key="index" class="student">
         <p>{{person.name}}</p>
         <div class="actions">

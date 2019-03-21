@@ -49,9 +49,14 @@ export default new Router({
       name: 'School',
       component: School,
       children: [{
+        path: '',
+        component: Staff,
+        name: "school"
+      },
+      {
         path: '/school/staff',
         component: Staff,
-        name: "staff"
+        name: "school"
       },
       {
         path: '/school/staff/add',
@@ -85,7 +90,12 @@ export default new Router({
         name: "staff-student"
       },
       {
-        path: '/staff/students/reports',
+        path: '',
+        component: Staff_Student,
+        name: "staff-student"
+      },
+      {
+        path: '/staff/student/reports',
         component: StudentReport,
         name: "student-report"
       },
@@ -111,6 +121,11 @@ export default new Router({
         name: "student-applications"
       },
       {
+        path: '',
+        component: StudentApplications,
+        name: "student-applications"
+      },
+      {
         path: '/company/students',
         component: CompanyStudents,
         name: "company-students"
@@ -121,7 +136,7 @@ export default new Router({
         name: "change-password"
       },
       {
-        path: '/company/students/reports',
+        path: '/company/student/reports',
         component: CompanyStudentReport,
         name: "student-report"
       },
@@ -138,6 +153,11 @@ export default new Router({
       component: StudentHome,
       children: [{
         path: '/student/applications',
+        component: MyApplications,
+        name: "my-applications"
+      },
+      {
+        path: '',
         component: MyApplications,
         name: "my-applications"
       },

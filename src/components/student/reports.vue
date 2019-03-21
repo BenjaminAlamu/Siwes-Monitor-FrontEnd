@@ -1,6 +1,7 @@
 <template>
   <div class="list">
     <div class="content container">
+      <h3 class="form-title">Reports</h3>
       <div class="row">
         <div
           v-for="(report,index) in reports"
@@ -67,7 +68,7 @@
         </v-card>
       </v-dialog>
     </div>
-    <v-btn fab dark color="indigo" right class="add-btn">
+    <v-btn fab dark color="indigo" to="/student/report/add" right class="add-btn">
       <v-icon dark>add</v-icon>
     </v-btn>
   </div>

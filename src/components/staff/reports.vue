@@ -1,6 +1,7 @@
 <template>
   <div class="list">
     <div class="content container">
+      <h3 class="form-title">Reports</h3>
       <div class="row">
         <div v-for="(report,index) in reports" :key="index" class="col-md-4 col-xs-12">
           <div class="card my-card">

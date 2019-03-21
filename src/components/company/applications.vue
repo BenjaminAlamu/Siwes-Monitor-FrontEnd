@@ -1,6 +1,7 @@
 <template>
   <div class="list">
     <div class="content">
+      <p class="form-title">Applications</p>
       <div v-for="(person,index) in student" :key="index" class="student">
         <p>{{person.name}}</p>
         <div class="actions">
@@ -9,9 +10,6 @@
         </div>
       </div>
     </div>
-    <v-btn fab dark color="indigo" right class="add-btn">
-      <v-icon dark>add</v-icon>
-    </v-btn>
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
   <div class="list">
     <div class="content">
+      <h3 class="form-title">My Applications</h3>
       <div v-for="(company,index) in companies" :key="index" class="student">
         <p>{{company.name}}</p>
         <div class="actions">

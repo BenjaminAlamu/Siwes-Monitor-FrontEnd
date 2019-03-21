@@ -24,5 +24,18 @@ export default {
 .body {
   font-family: 'Nunito';
 }
+
+.action {
+  cursor: pointer;
+}
+
+.form-title {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 21px;
+  font-size: 18px;
+  color: #324150;
+}
 </style>
 

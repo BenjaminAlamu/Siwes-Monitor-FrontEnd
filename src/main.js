@@ -20,6 +20,8 @@ Vue.use(BootstrapVue)
 Vue.use(VueRouter);
 Vue.use(Vuetify);
 
+Vue.prototype.$baseUrl = 'http://localhost:1337/';
+
 Vue.config.productionTip = false;
 
 new Vue({
