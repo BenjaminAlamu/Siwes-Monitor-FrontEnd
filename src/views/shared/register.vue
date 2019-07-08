@@ -10,9 +10,24 @@
           <div class="content">
             <form class="my-form">
               <div class="form-content">
-                <br>
+                <br />
                 <h3>Sign Up</h3>
                 <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="email">Full Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="e.g Jane Doe"
+                        id="name"
+                        aria-describedby="name"
+                        v-model="register.name"
+                      />
+                    </div>
+                  </div>
+                  <br />
+
                   <div class="row">
                     <div class="col-md-12">
                       <label for="email">Email</label>
@@ -23,10 +38,10 @@
                         id="email"
                         aria-describedby="email"
                         v-model="register.email"
-                      >
+                      />
                     </div>
                   </div>
-                  <br>
+                  <br />
 
                   <div class="row">
                     <div class="col-md-12">
@@ -38,159 +53,38 @@
                         id="password"
                         aria-describedby="password"
                         v-model="register.password"
-                      >
+                      />
                     </div>
                   </div>
-                  <br>
+                  <br />
 
                   <div class="row">
                     <div class="col-md-12">
-                      <label>Account Type</label>
-                      <br>
+                      <label>Country</label>
+                      <br />
                       <div class="form-check form-check-inline">
-                        <input type="radio" id="school" value="school" v-model="register.picked">
-                        <label for="school">School</label>
-                        <br>
-                        <input type="radio" id="company" value="company" v-model="register.picked">
-                        <label for="company">Company</label>
+                        <input type="radio" id="school" value="Nigeria" v-model="register.country" />
+                        <label for="school">Nigeria</label>
+                        <br />
+                        <input type="radio" id="company" value="others" v-model="register.country" />
+                        <label for="company">Others</label>
                       </div>
                     </div>
                   </div>
-                  <br>
-
-                  <div v-if="register.picked === 'company'">
-                    <div class="row">
-                      <div class="col-md-6 col-xs-12">
-                        <div class="form-group">
-                          <label for="company_name">Company Name</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="company_name"
-                            placeholder="e.g 390 Labs"
-                            v-model="company.companyName"
-                          >
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-xs-12">
-                        <div class="form-group">
-                          <label for="company_email">Company Email</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="company_email"
-                            placeholder="e.g mail@390labs.com"
-                            v-model="company.companyEmail"
-                          >
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-md-6 col-xs-12">
-                        <div class="form-group">
-                          <label for="company_username">Company Username</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="company_username"
-                            placeholder="e.g 390_Labs"
-                            v-model="company.companyUsername"
-                          >
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-xs-12">
-                        <div class="form-group">
-                          <label for="company_address">Company Address</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="company_address"
-                            placeholder="e.g Yaba, Lagos"
-                            v-model="company.companyAddress"
-                          >
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-md-6 col-xs-12">
-                        <div class="form-group">
-                          <label for="company_phoneNumber">Company Phone Number</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="company_phoneNumber"
-                            placeholder="e.g 08103374289"
-                            v-model="company.companyPhoneNum"
-                          >
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-xs-12">
-                        <div class="form-group">
-                          <label for="companyDescription">Company Description</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="companyDescription"
-                            placeholder="e.g Tech Comapny"
-                            v-model="company.companyDescription"
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- sCHOOL -->
-                  <div v-if="register.picked === 'school'">
-                    <div class="row">
-                      <div class="col-md-6 col-xs-12">
-                        <div class="form-group">
-                          <label for="school_name">School Name</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="school_name"
-                            placeholder="e.g 390 Labs"
-                            v-model="school.schoolName"
-                          >
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-xs-12">
-                        <div class="form-group">
-                          <label for="school_email">School Email</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="school_email"
-                            placeholder="e.g mail@390labs.com"
-                            v-model="school.email"
-                          >
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-md-6 col-xs-12">
-                        <div class="form-group">
-                          <label for="school_address">School Address</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="school_address"
-                            placeholder="e.g Yaba, Lagos"
-                            v-model="school.address"
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <br />
+                  <v-alert :value="successful" type="success">Registration successful</v-alert>
+                  <v-alert :value="errors.error" type="error">{{errors.error_msg}}</v-alert>
+                  <v-progress-circular v-if="loading" class="loading" indeterminate color="red"></v-progress-circular>
                   <div class="btn-group">
-                    <v-btn color="#324150" class="white--text">register</v-btn>
+                    <v-btn color="#324150" @click="handleRegister()" class="white--text">register</v-btn>
                   </div>
+                  <p>
+                    Already have an account?
+                    <router-link class="underline" to="/login">Sign In</router-link>
+                  </p>
                 </div>
               </div>
-              <br>
+              <br />
             </form>
           </div>
         </div>
@@ -200,17 +94,38 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'App',
   components: {},
   data() {
     return {
-      register: {
-        picked: 'school'
-      },
-      company: {},
-      school: {}
+      register: {},
+      loading: false,
+      errors: {},
+      successful: false
     };
+  },
+  methods: {
+    handleRegister() {
+      const self = this;
+      this.loading = true;
+      this.errors = {};
+      this.successful = false;
+
+      axios
+        .post('https://my-law-backend.herokuapp.com/api/v1/user', this.register)
+        .then(function(response) {
+          self.loading = false;
+          self.successful = true;
+        })
+        .catch(function(error) {
+          self.loading = false;
+          self.errors.error = true;
+          self.errors.error_msg = 'Invalid details';
+          console.log(error);
+        });
+    }
   }
 };
 </script>

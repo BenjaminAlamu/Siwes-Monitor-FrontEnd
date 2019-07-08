@@ -10,7 +10,7 @@
           <div class="content">
             <form class="my-form">
               <div class="form-content">
-                <br>
+                <br />
                 <h3>Sign In</h3>
                 <div class="form-group">
                   <div class="row">
@@ -24,10 +24,10 @@
                         required
                         aria-describedby="email"
                         v-model="login.email"
-                      >
+                      />
                     </div>
                   </div>
-                  <br>
+                  <br />
 
                   <div class="row">
                     <div class="col-md-12">
@@ -40,18 +40,23 @@
                         aria-describedby="password"
                         v-model="login.password"
                         required
-                      >
+                      />
                     </div>
                   </div>
+                  <v-alert :value="successful" type="success">Login successful</v-alert>
                   <v-alert :value="errors.error" type="error">{{errors.error_msg}}</v-alert>
                   <v-progress-circular v-if="loading" class="loading" indeterminate color="red"></v-progress-circular>
-                  <br>
+                  <br />
                   <div class="btn-group">
                     <v-btn color="#324150" @click="handleLogin()" class="white--text">Login</v-btn>
                   </div>
+                  <p class>
+                    Don't have an account?
+                    <router-link class="underline" to="/register">Sign Up</router-link>
+                  </p>
                 </div>
               </div>
-              <br>
+              <br />
             </form>
           </div>
         </div>
@@ -69,7 +74,8 @@ export default {
     return {
       login: {},
       loading: false,
-      errors: {}
+      errors: {},
+      successful: false
     };
   },
   methods: {
@@ -77,43 +83,18 @@ export default {
       const self = this;
       this.loading = true;
       this.errors = {};
+      this.successful = false;
 
       axios
-        .post('https://siwes-backend.herokuapp.com/login', this.login)
+        .post('https://my-law-backend.herokuapp.com/api/v1/session', this.login)
         .then(function(response) {
           self.loading = false;
-          if (response.data.status == '200') {
-            localStorage.setItem('siwesUser', JSON.stringify(response.data));
-            console.log(response.data);
-            if (response.data.user.type == 'school') {
-              self.$router.push({
-                name: 'School'
-              });
-            }
-            if (response.data.user.type == 'student') {
-              self.$router.push({
-                name: 'student-home'
-              });
-            }
-            if (response.data.user.type == 'staff') {
-              self.$router.push({
-                name: 'staff-container'
-              });
-            }
-            if (response.data.user.type == 'company') {
-              self.$router.push({
-                name: 'company-container'
-              });
-            }
-          } else {
-            self.errors.error = true;
-            self.errors.error_msg = response.data.message.message;
-          }
+          self.successful = true;
         })
         .catch(function(error) {
           self.loading = false;
           self.errors.error = true;
-          self.errors.error_msg = 'An error occured,pls contact the admin';
+          self.errors.error_msg = 'Invalid email or password';
           console.log(error);
         });
     }
@@ -147,7 +128,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  height: 350px;
+  min-height: 400px;
 }
 
 .form-content {
